@@ -1,1 +1,371 @@
+<!-- /support/index.html  -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JW247 — Feedback & Support</title>
+  <meta name="description" content="Send feedback, report bugs, and get support for JW247." />
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111826; --muted:#9aa7b6; --text:#e8eef6;
+      --line:#1f2a3a; --accent:#7aa2ff; --ok:#31c48d; --bad:#f97066;
+      --shadow: 0 8px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f6f8fb; --card:#ffffff; --muted:#526274; --text:#0b1220; --line:#e6edf5; --shadow:0 10px 30px rgba(10,20,40,.08);}
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); background:var(--bg); color:var(--text); line-height:1.35}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{padding:28px 16px 12px}
+    .wrap{max-width:var(--max); margin:0 auto}
+    .title{display:flex; gap:12px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap}
+    h1{margin:0; font-size:28px; letter-spacing:.2px}
+    .sub{margin:8px 0 0; color:var(--muted); max-width:70ch}
+    .grid{display:grid; gap:14px; padding:16px}
+    @media (min-width: 900px){ .grid{grid-template-columns: 1.15fr .85fr} }
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:16px;
+    }
+    .card h2{margin:0 0 10px; font-size:18px}
+    .card p{margin:10px 0; color:var(--muted)}
+    .row{display:grid; gap:10px}
+    @media (min-width: 700px){ .row.cols2{grid-template-columns:1fr 1fr} }
+    label{display:block; font-size:12.5px; color:var(--muted); margin:10px 0 6px}
+    input, select, textarea{
+      width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--line);
+      background:transparent; color:var(--text); outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, select:focus, textarea:focus{border-color: rgba(122,162,255,.65); box-shadow:0 0 0 3px rgba(122,162,255,.18)}
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:14px}
+    button{
+      border:1px solid rgba(122,162,255,.6);
+      background:rgba(122,162,255,.12);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    button.primary{
+      background:rgba(122,162,255,.24);
+      border-color:rgba(122,162,255,.9);
+    }
+    button:disabled{opacity:.55; cursor:not-allowed}
+    .pill{
+      font-family:var(--mono);
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted);
+    }
+    .status{margin-top:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--line); color:var(--muted)}
+    .status.ok{border-color: rgba(49,196,141,.45); color: var(--ok)}
+    .status.bad{border-color: rgba(249,112,102,.45); color: var(--bad)}
+    details{border:1px solid var(--line); border-radius:12px; padding:10px 12px; background:transparent}
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:600}
+    .small{font-size:12.5px; color:var(--muted)}
+    .footer{padding:6px 16px 26px; color:var(--muted)}
+    .kvs{display:grid; grid-template-columns: 140px 1fr; gap:6px 10px; margin:0}
+    .kvs dt{color:var(--muted)}
+    .kvs dd{margin:0; font-family:var(--mono); font-size:12.5px; overflow-wrap:anywhere}
+    .inline{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .checkbox{display:flex; gap:10px; align-items:flex-start; margin-top:10px}
+    .checkbox input{width:auto; margin-top:3px}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="title">
+        <div>
+          <h1>JW247 — Feedback & Support</h1>
+          <p class="sub">Report a bug, request a feature, or ask for help. Include platform + steps so issues can be reproduced quickly.</p>
+        </div>
+        <div class="pill" id="ticketPill" title="Reference ID">REF: —</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <!-- FORM -->
+      <section class="card" aria-labelledby="formTitle">
+        <h2 id="formTitle">Send a message</h2>
+
+        <form id="supportForm" autocomplete="on" novalidate>
+          <div class="row cols2">
+            <div>
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="Bug">Bug report</option>
+                <option value="Feature">Feature request</option>
+                <option value="Support" selected>Support</option>
+                <option value="Account">Account / Login</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="platform">Platform</label>
+              <select id="platform" name="platform" required>
+                <option value="iOS">iOS</option>
+                <option value="Android">Android</option>
+                <option value="Web" selected>Web</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row cols2">
+            <div>
+              <label for="appVersion">App version (optional)</label>
+              <input id="appVersion" name="appVersion" placeholder="e.g., 1.2.0 (build 45)" />
+            </div>
+            <div>
+              <label for="email">Email for reply (optional)</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" />
+            </div>
+          </div>
+
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" required placeholder="One sentence summary" maxlength="120" />
+
+          <label for="message">Details</label>
+          <textarea id="message" name="message" required placeholder="What happened? What did you expect? If it's a bug, include steps to reproduce."></textarea>
+
+          <div class="row cols2">
+            <div>
+              <label for="steps">Steps to reproduce (optional)</label>
+              <textarea id="steps" name="steps" placeholder="1) …  2) …  3) …" style="min-height:92px"></textarea>
+            </div>
+            <div>
+              <label for="context">Context (optional)</label>
+              <textarea id="context" name="context" placeholder="Device model, OS version, browser, logs, etc." style="min-height:92px"></textarea>
+            </div>
+          </div>
+
+          <div class="checkbox">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent" class="small">
+              I understand this message may include technical details (device/browser/app version) and will be used only to provide support and improve JW247.
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="primary" type="submit" id="sendBtn">Send</button>
+            <button type="button" id="emailBtn" title="Opens your email app">Send via email app</button>
+            <span class="small">If “Send” fails, use “Send via email app”.</span>
+          </div>
+
+          <div class="status" id="statusBox" role="status" aria-live="polite">
+            Ready.
+          </div>
+        </form>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:16px 0" />
+
+        <div class="small">
+          <strong>Tip:</strong> For bugs, include (1) exact screen name, (2) what you clicked, (3) what you expected, (4) what happened instead.
+        </div>
+      </section>
+
+      <!-- SUPPORT INFO -->
+      <aside class="card" aria-labelledby="helpTitle">
+        <h2 id="helpTitle">Quick help</h2>
+
+        <dl class="kvs">
+          <dt>Support email</dt>
+          <dd id="supportEmailText">support@jw247.org</dd>
+          <dt>Response</dt>
+          <dd>Typically within 24–72 hours</dd>
+          <dt>Reference ID</dt>
+          <dd id="refIdText">—</dd>
+        </dl>
+
+        <p class="small" style="margin-top:12px">
+          Include your <strong>Reference ID</strong> in follow-ups.
+        </p>
+
+        <h2 style="margin-top:18px">FAQ</h2>
+        <details>
+          <summary>Nothing happens when I click a button</summary>
+          <p class="small">Tell us the screen name, what you clicked, and whether you are on Web/iOS/Android. If Web, include browser name/version.</p>
+        </details>
+        <details>
+          <summary>Sync / cloud data looks missing</summary>
+          <p class="small">Include whether you were logged in, when it last worked, and what data type is missing (Notes, Sheets, Calls, Time, etc.).</p>
+        </details>
+        <details>
+          <summary>Export / email attachments not working</summary>
+          <p class="small">Include platform + whether your device email client opens. On Web, some browsers restrict automatic attachments.</p>
+        </details>
+        <details>
+          <summary>Feature request: what’s most helpful to include?</summary>
+          <p class="small">Describe the job-to-be-done, the exact screen where it belongs, and the simplest acceptable version (MVP).</p>
+        </details>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:16px 0" />
+        <p class="small">
+          Optional footer disclaimer (edit/remove as needed): JW247 is an independent application and is not an official product of jw.org or its affiliated organizations.
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <div class="footer wrap">
+    <div class="small">© <span id="year"></span> JW247</div>
+  </div>
+
+  <script>
+    /**
+     * CONFIG — edit these for your setup.
+     * If you don’t have an API endpoint yet, leave FEEDBACK_ENDPOINT as "" and the page will fallback to email-app sending.
+     */
+    const SUPPORT_EMAIL = "support@jw247.org";
+    const FEEDBACK_ENDPOINT = ""; // e.g. "/api/feedback" (Cloudflare Pages Function or Worker route)
+
+    // -------- utilities --------
+    const $ = (id) => document.getElementById(id);
+    const nowISO = () => new Date().toISOString();
+    const makeRef = () => {
+      // short, unique-ish: date + random
+      const d = new Date();
+      const y = d.getFullYear().toString().slice(-2);
+      const m = String(d.getMonth()+1).padStart(2,"0");
+      const day = String(d.getDate()).padStart(2,"0");
+      const rnd = Math.random().toString(36).slice(2, 8).toUpperCase();
+      return `JW-${y}${m}${day}-${rnd}`;
+    };
+    const setStatus = (msg, type="") => {
+      const box = $("statusBox");
+      box.className = "status" + (type ? " " + type : "");
+      box.textContent = msg;
+    };
+
+    // -------- init --------
+    const REF_ID = makeRef();
+    $("ticketPill").textContent = "REF: " + REF_ID;
+    $("refIdText").textContent = REF_ID;
+    $("supportEmailText").textContent = SUPPORT_EMAIL;
+    $("year").textContent = new Date().getFullYear();
+
+    // Prefill platform guess for web
+    try {
+      const ua = navigator.userAgent || "";
+      if (/iPhone|iPad|iPod/i.test(ua)) $("platform").value = "iOS";
+      else if (/Android/i.test(ua)) $("platform").value = "Android";
+      else $("platform").value = "Web";
+    } catch {}
+
+    // -------- email fallback --------
+    function openEmailClient(payload){
+      const subject = encodeURIComponent(`[JW247 ${payload.category}] ${payload.subject} (${payload.refId})`);
+      const body = encodeURIComponent(
+`Reference ID: ${payload.refId}
+Timestamp: ${payload.timestamp}
+Category: ${payload.category}
+Platform: ${payload.platform}
+App version: ${payload.appVersion || "-"}
+Reply email: ${payload.email || "-"}
+
+Subject: ${payload.subject}
+
+Details:
+${payload.message}
+
+Steps:
+${payload.steps || "-"}
+
+Context:
+${payload.context || "-"}
+
+User-Agent:
+${payload.userAgent}`
+      );
+      const mailto = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    }
+
+    // -------- form submit --------
+    function collectPayload(){
+      return {
+        refId: REF_ID,
+        timestamp: nowISO(),
+        category: $("category").value,
+        platform: $("platform").value,
+        appVersion: $("appVersion").value.trim(),
+        email: $("email").value.trim(),
+        subject: $("subject").value.trim(),
+        message: $("message").value.trim(),
+        steps: $("steps").value.trim(),
+        context: $("context").value.trim(),
+        userAgent: navigator.userAgent || ""
+      };
+    }
+
+    function basicValidate(p){
+      if (!p.subject) return "Subject is required.";
+      if (!p.message) return "Details are required.";
+      if (!$("consent").checked) return "Consent checkbox is required.";
+      const email = p.email;
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "Email looks invalid.";
+      return "";
+    }
+
+    $("emailBtn").addEventListener("click", () => {
+      const p = collectPayload();
+      const err = basicValidate(p);
+      if (err) return setStatus(err, "bad");
+      openEmailClient(p);
+    });
+
+    $("supportForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const p = collectPayload();
+      const err = basicValidate(p);
+      if (err) return setStatus(err, "bad");
+
+      $("sendBtn").disabled = true;
+      setStatus("Sending…");
+
+      // If no endpoint configured, fallback to email.
+      if (!FEEDBACK_ENDPOINT){
+        setStatus("No API endpoint configured. Opening your email app instead…", "bad");
+        $("sendBtn").disabled = false;
+        return openEmailClient(p);
+      }
+
+      try{
+        const res = await fetch(FEEDBACK_ENDPOINT, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(p)
+        });
+
+        if (!res.ok){
+          throw new Error(`HTTP ${res.status}`);
+        }
+
+        setStatus("Sent. Thank you. Keep your Reference ID for follow-ups: " + REF_ID, "ok");
+        $("supportForm").reset();
+        $("consent").checked = false;
+      } catch (ex){
+        setStatus("Send failed (network/API). Opening your email app instead…", "bad");
+        openEmailClient(p);
+      } finally{
+        $("sendBtn").disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
 
