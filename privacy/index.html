@@ -13,11 +13,12 @@
     .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin:14px 0; }
     h1 { margin:0 0 6px; font-size:26px; }
     h2 { margin:0 0 10px; font-size:18px; }
+    h3 { margin:14px 0 8px; font-size:15px; }
     p, li { color:var(--muted); line-height:1.5; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
     .meta { color:var(--muted); font-size:13px; margin-top:6px; }
-    .nav a { margin-right:14px; font-size:14px; }
+    .nav a { margin-right:14px; font-size:14px; display:inline-block; margin-bottom:6px; }
     code { background:#0b0e0d; border:1px solid var(--line); padding:2px 6px; border-radius:8px; color:var(--text); }
     .small { font-size:13px; }
   </style>
@@ -25,9 +26,9 @@
 
 <body>
   <header>
-    <h1>JW24/7 — Legal</h1>
+    <h1>JW24/7 — Privacy Policy & Terms</h1>
     <div class="meta">
-      Effective date: <strong>[YYYY-MM-DD]</strong> · App name: <strong>JW24/7</strong> · Developer: <strong>[Your Name/Entity]</strong>
+      Effective date: <strong>[YYYY-MM-DD]</strong> · App: <strong>JW24/7</strong> · Developer: <strong>[Your Name/Entity]</strong>
     </div>
     <div class="meta nav">
       <a href="#disclaimer">Disclaimer</a>
@@ -47,70 +48,89 @@
         It is <strong>not affiliated with, sponsored by, or endorsed by</strong> JW.org or the Watch Tower Bible and Tract Society of Pennsylvania.
         Official resources are available at JW.org and in JW Library.
       </p>
+      <p class="small">
+        Store listing short disclaimer (copy/paste):<br />
+        “JW24/7 is an independent, unofficial app. Not affiliated with, sponsored by, or endorsed by JW.org or the Watch Tower Bible and Tract Society of Pennsylvania.”
+      </p>
     </section>
 
     <section id="privacy" class="card">
       <h2>2) Privacy Policy</h2>
 
-      <p><strong>Summary:</strong> JW24/7 stores user-entered information on your device. The developer does not receive your in-app content. Some features use third-party services (example: maps), which may process technical data to provide those features.</p>
+      <p><strong>Summary:</strong> JW24/7 stores user-entered information locally on your device. The developer does not receive your in-app content. Some features may open or rely on third-party services (such as maps or phone/messaging apps) which process data under their own policies.</p>
 
-      <h3 class="small">2.1 Data the app stores (on-device)</h3>
+      <h3>2.1 Data stored on your device (local-only)</h3>
       <ul>
-        <li><strong>User-entered content:</strong> notes, calls/visits, addresses, phone numbers, territories, schedule items, and similar information you choose to enter.</li>
-        <li><strong>Local storage only:</strong> data is stored on your device (for example using local storage / local database). It is not transmitted to the developer’s servers.</li>
+        <li><strong>User-entered content:</strong> notes, calls/visits, addresses, phone numbers, territories, schedule items, and related information you choose to enter.</li>
+        <li><strong>Local storage:</strong> this information is stored on your device (for example using local storage / local database). It is not transmitted to the developer’s servers.</li>
       </ul>
 
-      <h3 class="small">2.2 Data the developer collects</h3>
+      <h3>2.2 Data the developer collects</h3>
       <ul>
-        <li><strong>No account required:</strong> no mandatory account creation or sign-in is required to use the app (unless you enable optional features in a future release).</li>
-        <li><strong>No in-app analytics/crash SDKs:</strong> the mobile app does not currently include third-party analytics or crash-reporting SDKs.</li>
-        <li><strong>No sale of personal data:</strong> the developer does not sell your personal data.</li>
+        <li><strong>No account required:</strong> no account creation or sign-in is required to use the app.</li>
+        <li><strong>No in-app analytics/crash SDKs:</strong> the mobile app does not currently include analytics or crash-reporting SDKs.</li>
+        <li><strong>No sale or sharing of personal data:</strong> the developer does not sell or share your personal data.</li>
       </ul>
 
-      <h3 class="small">2.3 Permissions & sensitive features</h3>
-      <ul>
-        <li>
-          <strong>Location (When In Use):</strong> if you allow it, the app can use your device location to help map territories/addresses.
-          You can deny or revoke location permission in your device settings; the app should still work with reduced map convenience.
-        </li>
-        <li>
-          <strong>Maps:</strong> map features use Google Maps SDK/APIs when enabled and configured (API key).
-          Google may receive technical information (such as IP address, device identifiers, and approximate location depending on your settings/permissions) to provide mapping and geocoding services.
-          Your use of Google Maps is subject to Google’s privacy policy and terms.
-        </li>
-      </ul>
-
-      <h3 class="small">2.4 Links to external services</h3>
+      <h3>2.3 Camera permission</h3>
       <p>
-        JW24/7 may open external apps or links (example: phone dialer, messaging apps, Google Voice, WhatsApp, websites).
+        JW24/7 may request access to your device’s camera for optional features such as capturing or scanning images.
+        Camera access is used only when you choose to use these features.
+      </p>
+      <p>
+        Images and any related data captured using the camera remain stored locally on your device.
+        The app does not transmit camera images or related data to the developer or to external servers.
+      </p>
+      <p>
+        You may deny or revoke camera permission at any time in your device settings. The app will continue to function,
+        except for features that require camera access.
+      </p>
+
+      <h3>2.4 Location permission</h3>
+      <p>
+        If you choose to allow it, JW24/7 may use your device’s location to help map territories and addresses.
+        You can deny or revoke location permission in your device settings; the app will continue to function with reduced map convenience.
+      </p>
+
+      <h3>2.5 Maps and geocoding</h3>
+      <p>
+        When map features are enabled and configured, JW24/7 may use Google Maps SDK/APIs to display maps and assist with mapping addresses.
+        Google may process technical information (such as IP address, device identifiers, and approximate location depending on your settings/permissions)
+        to provide mapping services. Your use of Google Maps is subject to Google’s terms and privacy policy.
+      </p>
+
+      <h3>2.6 Links to external services</h3>
+      <p>
+        The app may open external services (example: phone dialer, messaging apps, Google Voice, WhatsApp, websites).
         Those third-party services handle data under their own privacy policies.
       </p>
 
-      <h3 class="small">2.5 Website analytics (this page / site)</h3>
+      <h3>2.7 Website analytics (this website only, optional)</h3>
       <p>
-        If enabled on this website, we may use privacy-focused, aggregate traffic analytics (for example, to understand approximate traffic volume and countries).
-        This is for the website only and does not include your in-app notes/content.
-        <br />
-        <span class="small">If you do not enable website analytics, remove this section.</span>
+        If enabled on this website, we may use privacy-focused, aggregate traffic analytics to understand basic traffic volume
+        (including approximate country/region). This does not include your in-app notes/content.
+      </p>
+      <p class="small">
+        If you do not use website analytics, remove this section.
       </p>
 
-      <h3 class="small">2.6 User controls</h3>
+      <h3>2.8 User controls</h3>
       <ul>
-        <li><strong>Delete:</strong> you can delete entries inside the app. You can also remove all local app data by uninstalling the app.</li>
-        <li><strong>Export/backup (if available):</strong> if the app offers export/backup, you control where you store exported files.</li>
+        <li><strong>Delete:</strong> you can delete entries inside the app. You can remove all app data by uninstalling the app.</li>
+        <li><strong>Export/backup (if available):</strong> if the app offers export/backup, you control where exported files are stored.</li>
       </ul>
 
-      <h3 class="small">2.7 Data retention</h3>
+      <h3>2.9 Data retention</h3>
       <p>
         Local data remains on your device until you delete it or uninstall the app.
       </p>
 
-      <h3 class="small">2.8 Children</h3>
+      <h3>2.10 Children</h3>
       <p>
-        JW24/7 is not directed to children under 13. Do not submit personal information about minors unless you have the legal right to do so.
+        JW24/7 is not directed to children under 13. Do not enter personal information about minors unless you have the legal right to do so.
       </p>
 
-      <h3 class="small">2.9 Changes</h3>
+      <h3>2.11 Changes</h3>
       <p>
         We may update this Privacy Policy. The “Effective date” above reflects the latest version.
       </p>
@@ -118,103 +138,63 @@
 
     <section id="terms" class="card">
       <h2>3) Terms of Use</h2>
-      <p>
-        By using JW24/7, you agree to these Terms.
-      </p>
+      <p>By using JW24/7, you agree to these Terms.</p>
 
-      <h3 class="small">3.1 Intended use</h3>
-      <p>
-        JW24/7 is a personal organization tool. You are responsible for the content you enter and how you use the app.
-      </p>
+      <h3>3.1 Intended use</h3>
+      <p>JW24/7 is a personal organization tool. You are responsible for the content you enter and how you use the app.</p>
 
-      <h3 class="small">3.2 No warranties</h3>
-      <p>
-        The app is provided “as is” and “as available,” without warranties of any kind. The developer does not guarantee that the app will be error-free or uninterrupted.
-      </p>
+      <h3>3.2 No warranties</h3>
+      <p>The app is provided “as is” and “as available,” without warranties of any kind. The developer does not guarantee that the app will be error-free or uninterrupted.</p>
 
-      <h3 class="small">3.3 Limitation of liability</h3>
-      <p>
-        To the maximum extent permitted by law, the developer will not be liable for indirect, incidental, special, consequential, or punitive damages, or any loss of data, arising from your use of the app.
-      </p>
+      <h3>3.3 Limitation of liability</h3>
+      <p>To the maximum extent permitted by law, the developer will not be liable for indirect, incidental, special, consequential, or punitive damages, or any loss of data, arising from your use of the app.</p>
 
-      <h3 class="small">3.4 Feedback and bug reports</h3>
-      <p>
-        If you submit feedback, suggestions, or bug reports, you grant the developer the right to use that feedback to improve the app, without compensation, and without obligation.
-      </p>
+      <h3>3.4 Feedback and bug reports</h3>
+      <p>If you submit feedback, suggestions, or bug reports, you grant the developer the right to use that feedback to improve the app, without compensation, and without obligation.</p>
 
-      <h3 class="small">3.5 Prohibited actions</h3>
+      <h3>3.5 Prohibited actions</h3>
       <ul>
         <li>Do not reverse engineer, decompile, or attempt to extract source code except where permitted by law.</li>
         <li>Do not redistribute, resell, sublicense, or publish the app or any portion of it without written permission.</li>
         <li>Do not use the app to store or process content that violates applicable laws or the rights of others.</li>
       </ul>
 
-      <h3 class="small">3.6 Third-party services</h3>
-      <p>
-        The app may rely on third-party services (example: maps). Those services are provided under their own terms and policies.
-      </p>
+      <h3>3.6 Third-party services</h3>
+      <p>The app may rely on third-party services (example: maps). Those services are provided under their own terms and policies.</p>
     </section>
 
     <section id="eula" class="card">
       <h2>4) License / EULA (Closed-Source)</h2>
+      <p>Copyright © <strong>[Year]</strong> <strong>[Your Name/Entity]</strong>. All rights reserved.</p>
       <p>
-        Copyright © <strong>[Year]</strong> <strong>[Your Name/Entity]</strong>. All rights reserved.
-      </p>
-      <p>
-        Subject to these Terms, you are granted a personal, non-transferable, non-exclusive, revocable license to install and use JW24/7 for your personal use.
+        Subject to these Terms, you are granted a personal, non-transferable, non-exclusive, revocable license to install and use JW24/7 for personal use.
       </p>
       <ul>
         <li>No copying, modifying, distributing, sublicensing, or creating derivative works from the app, except where permitted by law.</li>
         <li>This license terminates automatically if you violate these Terms. Upon termination, you must stop using the app and delete it.</li>
       </ul>
       <p class="small">
-        Apple EULA note: If you distribute on the Apple App Store, Apple’s standard EULA may apply unless you provide a custom EULA in App Store Connect.
+        If you distribute on the Apple App Store, Apple’s standard EULA may apply unless you provide a custom EULA in App Store Connect.
       </p>
     </section>
 
     <section id="opensource" class="card">
       <h2>5) Open Source Notices</h2>
-      <p>
-        JW24/7 may include open-source software. Open-source licenses and attributions are available:
-      </p>
+      <p>JW24/7 may include open-source software. Open-source licenses and attributions should be available:</p>
       <ul>
-        <li>In-app: Settings → Open Source Licenses (recommended to add)</li>
-        <li>Or here: <a href="../opensource/index.html">Open Source Licenses</a> (optional page)</li>
+        <li>In-app: Settings → Open Source Licenses (recommended)</li>
+        <li>Or on this site: <a href="../opensource/index.html">Open Source Licenses</a> (optional page)</li>
       </ul>
-      <p class="small">
-        If you do not yet have an open-source notices page, create one before release or provide the attributions inside the app.
-      </p>
     </section>
 
     <section id="contact" class="card">
       <h2>6) Support / Contact</h2>
       <p>
-        Support email: <a href="mailto:[support@yourdomain.com]">[support@yourdomain.com]</a><br />
-        Website: <a href="[https://yourdomain.com]">[https://yourdomain.com]</a>
+        Support email: <a href="mailto:[support@jw247.org]">[support@jw247.org]</a><br />
+        Website: <a href="[https://jw247.org]">[https://jw247.org]</a>
       </p>
       <p class="small">
-        To report bugs or request features, email support with: device model, OS version, app version, and steps to reproduce.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Store Listing Disclaimer (Copy/Paste)</h2>
-      <p class="small">
-        Use this at the top of your Google Play / App Store description and in the app’s About screen:
-      </p>
-      <p>
-        “JW24/7 is an independent, unofficial app. Not affiliated with, sponsored by, or endorsed by JW.org or the Watch Tower Bible and Tract Society of Pennsylvania.”
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Analytics: How to see downloads & countries without adding SDKs</h2>
-      <p>
-        You can view downloads and country breakdown using the built-in analytics in Google Play Console and App Store Connect,
-        without adding any in-app analytics SDK.
-      </p>
-      <p class="small">
-        If you later want deeper insight, add an opt-in analytics option and update this Privacy Policy before enabling it.
+        For bug reports, include: device model, OS version, app version, and steps to reproduce.
       </p>
     </section>
 
